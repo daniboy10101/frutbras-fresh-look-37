@@ -17,6 +17,7 @@ import { useState } from "react";
 import categorySmoothies from "@/assets/category-smoothies.jpg";
 import categoryFrozen from "@/assets/category-frozen.jpg";
 import categoryFlavoredIce from "@/assets/category-flavored-ice.jpg";
+import categoryPescados from "@/assets/category-pescados.jpg";
 
 const ProductPage = () => {
   const { category } = useParams();
@@ -43,130 +44,189 @@ const ProductPage = () => {
   const categories = {
     "polpas-de-frutas": {
       title: "Polpas de Frutas",
-      description: "Polpas 100% naturais extraídas de frutas selecionadas",
+      description: "Pacotes de 12 unidades - Caixa com 4 pacotes (48un total)",
       image: categorySmoothies,
       products: [
         {
           id: 1,
-          name: "Polpa de Açaí",
-          price: "R$ 15,90",
-          description: "Polpa pura de açaí, rica em antioxidantes e vitaminas",
+          name: "Polpa de Açaí (Pacote 12un)",
+          price: "R$ 89,90",
+          description: "Pacote com 12 unidades de polpa pura de açaí, rica em antioxidantes",
           image: categorySmoothies,
           rating: 4.8,
-          inStock: true
+          inStock: true,
+          unit: "pacote" as const
         },
         {
           id: 2,
-          name: "Polpa de Manga",
-          price: "R$ 12,50",
-          description: "Polpa natural de manga, doce e refrescante",
+          name: "Polpa de Manga (Pacote 12un)",
+          price: "R$ 74,90",
+          description: "Pacote com 12 unidades de polpa natural de manga, doce e refrescante",
           image: categorySmoothies,
           rating: 4.7,
-          inStock: true
+          inStock: true,
+          unit: "pacote" as const
         },
         {
           id: 3,
-          name: "Polpa de Caju",
-          price: "R$ 14,20",
-          description: "Polpa de caju com sabor único e tropical",
+          name: "Polpa de Caju (Pacote 12un)",
+          price: "R$ 85,40",
+          description: "Pacote com 12 unidades de polpa de caju com sabor único e tropical",
           image: categorySmoothies,
           rating: 4.6,
-          inStock: false
+          inStock: false,
+          unit: "pacote" as const
         },
         {
           id: 4,
-          name: "Polpa de Goiaba",
-          price: "R$ 13,80",
-          description: "Polpa cremosa de goiaba, ideal para vitaminas",
+          name: "Polpa de Goiaba (Pacote 12un)",
+          price: "R$ 82,80",
+          description: "Pacote com 12 unidades de polpa cremosa de goiaba, ideal para vitaminas",
           image: categorySmoothies,
           rating: 4.9,
-          inStock: true
+          inStock: true,
+          unit: "pacote" as const
         }
       ]
     },
     "frutas-congeladas": {
       title: "Frutas Congeladas",
-      description: "Frutas congeladas mantendo todo o sabor e nutrientes",
+      description: "Frutas congeladas vendidas por quilograma",
       image: categoryFrozen,
       products: [
         {
           id: 5,
           name: "Açaí Congelado",
           price: "R$ 18,90",
-          description: "Açaí congelado em cubos, pronto para consumo",
+          description: "Açaí congelado por kg, pronto para consumo",
           image: categoryFrozen,
           rating: 4.9,
-          inStock: true
+          inStock: true,
+          unit: "kg" as const
         },
         {
           id: 6,
           name: "Mix de Frutas",
           price: "R$ 16,50",
-          description: "Mistura de frutas congeladas variadas",
+          description: "Mistura de frutas congeladas variadas por kg",
           image: categoryFrozen,
           rating: 4.7,
-          inStock: true
+          inStock: true,
+          unit: "kg" as const
         },
         {
           id: 7,
           name: "Frutas Picadas",
           price: "R$ 14,90",
-          description: "Frutas cortadas e congeladas individualmente",
+          description: "Frutas cortadas e congeladas individualmente por kg",
           image: categoryFrozen,
           rating: 4.5,
-          inStock: true
+          inStock: true,
+          unit: "kg" as const
         },
         {
           id: 8,
           name: "Smoothie Packs",
           price: "R$ 22,90",
-          description: "Pacotes prontos para smoothies saudáveis",
+          description: "Pacotes prontos para smoothies saudáveis por kg",
           image: categoryFrozen,
           rating: 4.8,
-          inStock: false
+          inStock: false,
+          unit: "kg" as const
         }
       ]
     },
     "gelo-saborizado": {
       title: "Gelo Saborizado",
-      description: "Gelos saborizados com frutas naturais para refrescar",
+      description: "Caixas com 30 unidades de gelo saborizado",
       image: categoryFlavoredIce,
       products: [
         {
           id: 9,
-          name: "Gelo de Açaí",
-          price: "R$ 8,90",
-          description: "Cubos de gelo saborizados com açaí natural",
+          name: "Gelo de Açaí (Caixa 30un)",
+          price: "R$ 58,90",
+          description: "Caixa com 30 cubos de gelo saborizados com açaí natural",
           image: categoryFlavoredIce,
           rating: 4.6,
-          inStock: true
+          inStock: true,
+          unit: "caixa" as const
         },
         {
           id: 10,
-          name: "Gelo de Manga",
-          price: "R$ 7,50",
-          description: "Gelo com sabor tropical de manga",
+          name: "Gelo de Manga (Caixa 30un)",
+          price: "R$ 52,50",
+          description: "Caixa com 30 cubos de gelo com sabor tropical de manga",
           image: categoryFlavoredIce,
           rating: 4.4,
-          inStock: true
+          inStock: true,
+          unit: "caixa" as const
         },
         {
           id: 11,
-          name: "Gelo de Caju",
-          price: "R$ 8,20",
-          description: "Cubos de gelo com sabor autêntico de caju",
+          name: "Gelo de Caju (Caixa 30un)",
+          price: "R$ 55,20",
+          description: "Caixa com 30 cubos de gelo com sabor autêntico de caju",
           image: categoryFlavoredIce,
           rating: 4.5,
-          inStock: true
+          inStock: true,
+          unit: "caixa" as const
         },
         {
           id: 12,
-          name: "Gelo Tropical",
-          price: "R$ 9,90",
-          description: "Mix de sabores tropicais em cubos de gelo",
+          name: "Gelo Tropical (Caixa 30un)",
+          price: "R$ 61,90",
+          description: "Caixa com 30 cubos de gelo com mix de sabores tropicais",
           image: categoryFlavoredIce,
           rating: 4.7,
-          inStock: false
+          inStock: false,
+          unit: "caixa" as const
+        }
+      ]
+    },
+    "pescados": {
+      title: "Pescados",
+      description: "Pescados frescos e congelados vendidos por quilograma",
+      image: categoryPescados,
+      products: [
+        {
+          id: 13,
+          name: "Tilápia",
+          price: "R$ 24,90",
+          description: "Tilápia fresca de qualidade premium por kg",
+          image: categoryPescados,
+          rating: 4.8,
+          inStock: true,
+          unit: "kg" as const
+        },
+        {
+          id: 14,
+          name: "Salmão",
+          price: "R$ 89,90",
+          description: "Salmão fresco importado de alta qualidade por kg",
+          image: categoryPescados,
+          rating: 4.9,
+          inStock: true,
+          unit: "kg" as const
+        },
+        {
+          id: 15,
+          name: "Camarão",
+          price: "R$ 65,90",
+          description: "Camarão rosa fresco e descascado por kg",
+          image: categoryPescados,
+          rating: 4.7,
+          inStock: true,
+          unit: "kg" as const
+        },
+        {
+          id: 16,
+          name: "Polvo",
+          price: "R$ 78,90",
+          description: "Polvo fresco limpo e pronto para preparo por kg",
+          image: categoryPescados,
+          rating: 4.6,
+          inStock: false,
+          unit: "kg" as const
         }
       ]
     }
@@ -189,7 +249,8 @@ const ProductPage = () => {
       name: product.name,
       price: product.price,
       image: product.image,
-      quantity: quantity
+      quantity: quantity,
+      unit: product.unit
     });
     
     // Reset quantity back to 1 after adding
@@ -216,15 +277,18 @@ const ProductPage = () => {
 
           {/* Category Navigation */}
           <Tabs value={category} className="mb-8">
-            <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
+            <TabsList className="grid w-full grid-cols-2 lg:w-auto lg:grid-cols-4 gap-1">
               <TabsTrigger value="polpas-de-frutas" asChild>
-                <Link to="/produtos/polpas-de-frutas">Polpas de Frutas</Link>
+                <Link to="/produtos/polpas-de-frutas">Polpas</Link>
               </TabsTrigger>
               <TabsTrigger value="frutas-congeladas" asChild>
-                <Link to="/produtos/frutas-congeladas">Frutas Congeladas</Link>
+                <Link to="/produtos/frutas-congeladas">Frutas</Link>
               </TabsTrigger>
               <TabsTrigger value="gelo-saborizado" asChild>
-                <Link to="/produtos/gelo-saborizado">Gelo Saborizado</Link>
+                <Link to="/produtos/gelo-saborizado">Gelo</Link>
+              </TabsTrigger>
+              <TabsTrigger value="pescados" asChild>
+                <Link to="/produtos/pescados">Pescados</Link>
               </TabsTrigger>
             </TabsList>
           </Tabs>
@@ -285,7 +349,12 @@ const ProductPage = () => {
                 
                 <CardContent className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-primary">{product.price}</span>
+                    <div className="space-y-1">
+                      <span className="text-2xl font-bold text-primary">{product.price}</span>
+                      <div className="text-sm text-muted-foreground font-medium">
+                        por {product.unit}
+                      </div>
+                    </div>
                     {getCartQuantity(product.id) > 0 && (
                       <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
                         {getCartQuantity(product.id)} no carrinho
@@ -329,7 +398,7 @@ const ProductPage = () => {
                     onClick={() => handleAddToCart(product)}
                   >
                     <ShoppingCart className="mr-2 w-4 h-4" />
-                    {product.inStock ? "Adicionar ao Carrinho" : "Indisponível"}
+                    {product.inStock ? `Adicionar ${getProductQuantity(product.id)} ${product.unit}${getProductQuantity(product.id) > 1 ? 's' : ''}` : "Indisponível"}
                   </Button>
                 </CardContent>
               </Card>

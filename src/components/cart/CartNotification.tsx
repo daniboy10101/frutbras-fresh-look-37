@@ -38,7 +38,7 @@ export const CartNotification = ({ item, isVisible, onClose }: CartNotificationP
               Adicionado ao carrinho!
             </h4>
             <p className="text-sm text-muted-foreground line-clamp-1 mb-2">
-              {item.name}
+              {item.quantity} {item.unit}{item.quantity > 1 ? 's' : ''} - {item.name}
             </p>
             
             <div className="flex gap-2">

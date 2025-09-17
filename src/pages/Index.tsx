@@ -13,9 +13,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead 
-        title="Frutbras - Polpas de Frutas Naturais e Alimentos Congelados | 15 Anos de Qualidade"
-        description="Distribuidora líder em polpas de frutas 100% naturais, pescados e produtos congelados. 15 anos oferecendo qualidade premium para empresas em todo Brasil. Açaí, manga, caju e muito mais."
-        keywords="polpas de frutas naturais, alimentos congelados, açaí, manga, caju, goiaba, distribuidor atacado, frutas congeladas, pescados, São Paulo, Brasil"
+        title="Frutbras - Polpas de Frutas, Pescados e Alimentos Congelados | 15 Anos de Qualidade"
+        description="Distribuidora líder em polpas de frutas naturais (pacotes 12un), pescados frescos por kg, gelo saborizado (caixas 30un) e frutas congeladas. 15 anos oferecendo qualidade premium para empresas."
+        keywords="polpas de frutas naturais, pescados por kg, alimentos congelados, açaí, manga, caju, tilápia, salmão, camarão, gelo saborizado caixa, distribuidor atacado, São Paulo, Brasil"
         structuredData={structuredData}
       />
       

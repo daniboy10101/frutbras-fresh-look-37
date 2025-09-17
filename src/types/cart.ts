@@ -6,6 +6,7 @@ export interface Product {
   image: string;
   rating: number;
   inStock: boolean;
+  unit: 'unidade' | 'pacote' | 'caixa' | 'kg';
 }
 
 export interface CartItem {
@@ -14,6 +15,7 @@ export interface CartItem {
   price: string;
   image: string;
   quantity: number;
+  unit: 'unidade' | 'pacote' | 'caixa' | 'kg';
 }
 
 export interface CustomerData {

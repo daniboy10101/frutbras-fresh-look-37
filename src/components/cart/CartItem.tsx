@@ -29,7 +29,7 @@ export const CartItem = ({ item }: CartItemProps) => {
           {item.name}
         </h4>
         <p className="text-sm text-muted-foreground">
-          {item.price} cada
+          {item.price} por {item.unit}
         </p>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">

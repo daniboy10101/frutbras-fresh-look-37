@@ -53,7 +53,8 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
           name: product.name,
           price: product.price,
           image: product.image,
-          quantity
+          quantity,
+          unit: product.unit
         }]
       };
     }

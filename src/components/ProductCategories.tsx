@@ -1,18 +1,19 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Snowflake, Droplets } from "lucide-react";
+import { ArrowRight, Sparkles, Snowflake, Droplets, Fish } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import categoryFrozen from "@/assets/category-frozen.jpg";
 import categorySmoothies from "@/assets/category-smoothies.jpg";
 import categoryFlavoredIce from "@/assets/category-flavored-ice.jpg";
+import categoryPescados from "@/assets/category-pescados.jpg";
 
 const ProductCategories = () => {
   const categories = [
     {
       icon: Droplets,
       title: "Polpas de Frutas",
-      description: "Polpas 100% naturais extraídas de frutas selecionadas",
+      description: "Pacotes de 12 unidades - Caixa com 4 pacotes (48un total)",
       image: categorySmoothies,
       color: "text-primary",
       slug: "polpas-de-frutas",
@@ -21,7 +22,7 @@ const ProductCategories = () => {
     {
       icon: Snowflake, 
       title: "Frutas Congeladas",
-      description: "Frutas congeladas mantendo todo o sabor e nutrientes",
+      description: "Frutas congeladas vendidas por quilograma",
       image: categoryFrozen,
       color: "text-accent",
       slug: "frutas-congeladas",
@@ -30,11 +31,20 @@ const ProductCategories = () => {
     {
       icon: Sparkles,
       title: "Gelo Saborizado",
-      description: "Gelos saborizados com frutas naturais para refrescar",
+      description: "Caixas com 30 unidades de gelo saborizado",
       image: categoryFlavoredIce,
       color: "text-secondary",
       slug: "gelo-saborizado",
       products: ["Gelo de Açaí", "Gelo de Manga", "Gelo de Caju", "Gelo Tropical"]
+    },
+    {
+      icon: Fish,
+      title: "Pescados",
+      description: "Pescados frescos e congelados vendidos por quilograma",
+      image: categoryPescados,
+      color: "text-blue-600",
+      slug: "pescados",
+      products: ["Tilápia", "Salmão", "Camarão", "Polvo"]
     }
   ];
 
@@ -51,7 +61,7 @@ const ProductCategories = () => {
           </p>
         </div>
 
-        <div className="space-y-6 max-w-4xl mx-auto">
+        <div className="grid gap-6 max-w-6xl mx-auto lg:grid-cols-2">
           {categories.map((category, index) => {
             const Icon = category.icon;
             return (
@@ -60,9 +70,9 @@ const ProductCategories = () => {
                 className="group hover:shadow-strong transition-spring gradient-card border-border/50 overflow-hidden animate-scale-in"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="flex flex-col lg:flex-row">
+                <div className="flex flex-col">
                   {/* Image Section */}
-                  <div className="lg:w-1/3 aspect-video lg:aspect-square overflow-hidden">
+                  <div className="aspect-video overflow-hidden">
                     <img 
                       src={category.image} 
                       alt={`${category.title} - ${category.description} da Frutbras`}
@@ -72,7 +82,7 @@ const ProductCategories = () => {
                   </div>
                   
                   {/* Content Section */}
-                  <div className="lg:w-2/3 flex flex-col">
+                  <div className="flex flex-col">
                     <CardHeader className="pb-3">
                       <div className="flex items-center gap-3 mb-2">
                         <div className={`p-2 rounded-lg bg-background ${category.color}`}>
@@ -101,7 +111,7 @@ const ProductCategories = () => {
                         <Link to={`/produtos/${category.slug}`}>
                           <Button 
                             size="lg"
-                            className="w-full lg:w-auto gradient-accent border-0 text-white shadow-medium hover:shadow-strong transition-spring group"
+                            className="w-full gradient-accent border-0 text-white shadow-medium hover:shadow-strong transition-spring group"
                           >
                             Ver Produtos
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
