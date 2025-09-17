@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://frutbras.com.br/sitemap.xml
+
+# Allow search engines to crawl all content
+Allow: /produtos/
+Allow: /receitas/
+Allow: /sobre/
+Allow: /contato/
+
+# Block sensitive areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+
+# Allow all crawlers to access static assets
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /images/
+
+# Crawl-delay for respectful crawling
+User-agent: *
+Crawl-delay: 1
