@@ -13,6 +13,9 @@ import { useCartNotification } from "@/hooks/useCartNotification";
 import { CartNotification } from "@/components/cart/CartNotification";
 import { CartSummaryCard } from "@/components/cart/CartSummaryCard";
 import { useState } from "react";
+import { SEOHead } from "@/components/seo/SEOHead";
+import { productCategoryStructuredData, breadcrumbStructuredData } from "@/components/seo/StructuredData";
+import { generateLandingPageKeywords } from "@/utils/seo";
 
 import categorySmoothies from "@/assets/category-smoothies.jpg";
 import categoryFrozen from "@/assets/category-frozen.jpg";
@@ -257,8 +260,40 @@ const ProductPage = () => {
     setQuantities(prev => ({ ...prev, [product.id]: 1 }));
   };
 
+  // SEO data generation
+  const categoryKeywords = generateLandingPageKeywords(category || "");
+  const breadcrumbs = [
+    { name: "Início", url: "https://frutbras.com.br/" },
+    { name: "Produtos", url: "https://frutbras.com.br/produtos" },
+    { name: currentCategory.title, url: `https://frutbras.com.br/produtos/${category}` }
+  ];
+  
+  const categoryStructuredData = [
+    productCategoryStructuredData({
+      name: currentCategory.title,
+      description: currentCategory.description,
+      products: currentCategory.products,
+      url: `https://frutbras.com.br/produtos/${category}`
+    }),
+    breadcrumbStructuredData(breadcrumbs)
+  ];
+
+  const seoTitle = `${currentCategory.title} | Frutbras Atacado SP`;
+  const seoDescription = `${currentCategory.description}. Qualidade garantida há 15 anos. Entrega em São Paulo e região. Solicite orçamento!`;
+
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title={seoTitle}
+        description={seoDescription}
+        keywords={categoryKeywords}
+        url={`https://frutbras.com.br/produtos/${category}`}
+        structuredData={categoryStructuredData}
+        category="food"
+        businessType="distributor"
+        localBusiness={true}
+      />
+      
       <Header />
       
       <main className="py-8">

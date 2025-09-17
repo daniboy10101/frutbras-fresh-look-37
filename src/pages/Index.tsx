@@ -5,18 +5,21 @@ import About from "@/components/About";
 import Footer from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { organizationStructuredData, websiteStructuredData } from "@/components/seo/StructuredData";
+import { homePageStructuredData } from "@/components/seo/StructuredData";
 
 const Index = () => {
-  const structuredData = [organizationStructuredData, websiteStructuredData];
+  const structuredData = homePageStructuredData;
 
   return (
     <div className="min-h-screen bg-background">
       <SEOHead 
-        title="Frutbras - Polpas de Frutas, Pescados e Alimentos Congelados | 15 Anos de Qualidade"
-        description="Distribuidora líder em polpas de frutas naturais (pacotes 12un), pescados frescos por kg, gelo saborizado (caixas 30un) e frutas congeladas. 15 anos oferecendo qualidade premium para empresas."
-        keywords="polpas de frutas naturais, pescados por kg, alimentos congelados, açaí, manga, caju, tilápia, salmão, camarão, gelo saborizado caixa, distribuidor atacado, São Paulo, Brasil"
+        title="Frutbras - Polpas de Frutas, Pescados e Congelados | Atacado SP"
+        description="🍓 Distribuidora líder em polpas (pacotes 12un), pescados frescos por kg, gelo saborizado (caixas 30un). ✅ 15 anos no mercado ✅ Entrega em SP ✅ Qualidade garantida"
+        keywords="polpas de frutas atacado, pescados por kg são paulo, distribuidor alimentos congelados, açaí pacote 12 unidades, tilápia salmão camarão kg, gelo saborizado caixa 30, polpa manga caju goiaba atacado, frutas congeladas distribuidor, fornecedor restaurantes sp"
         structuredData={structuredData}
+        category="food"
+        businessType="distributor"
+        localBusiness={true}
       />
       
       <Header />
