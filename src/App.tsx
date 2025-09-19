@@ -12,6 +12,9 @@ import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CartProvider } from "@/contexts/CartContext";
+import { AuthProvider } from "@/contexts/AuthContext";
+import AuthPage from "./pages/AuthPage";
+import AdminDashboard from "./pages/AdminDashboard";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,22 +29,26 @@ const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <CartProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/produtos/:category" element={<ProductPage />} />
-              <Route path="/receitas" element={<RecipesPage />} />
-              <Route path="/contato" element={<ContactPage />} />
-              <Route path="/sobre" element={<AboutPage />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <CartDrawer />
-          </BrowserRouter>
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/produtos/:category" element={<ProductPage />} />
+                <Route path="/receitas" element={<RecipesPage />} />
+                <Route path="/contato" element={<ContactPage />} />
+                <Route path="/sobre" element={<AboutPage />} />
+                <Route path="/auth" element={<AuthPage />} />
+                <Route path="/admin" element={<AdminDashboard />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <CartDrawer />
+            </BrowserRouter>
+          </CartProvider>
+        </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
   </HelmetProvider>

@@ -6,9 +6,14 @@ import Footer from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { homePageStructuredData } from "@/components/seo/StructuredData";
+import { useAuth } from "@/contexts/AuthContext";
+import { Button } from "@/components/ui/button";
+import { Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const structuredData = homePageStructuredData;
+  const { user, isAdmin } = useAuth();
 
   return (
     <div className="min-h-screen bg-background">
@@ -23,6 +28,34 @@ const Index = () => {
       />
       
       <Header />
+      
+      {/* Admin Access Button */}
+      {!user && (
+        <div className="bg-muted/50 border-b">
+          <div className="container mx-auto px-4 py-3 flex justify-center">
+            <Link to="/auth">
+              <Button variant="outline" size="sm" className="flex items-center gap-2">
+                <Shield className="h-4 w-4" />
+                Acesso Administrativo
+              </Button>
+            </Link>
+          </div>
+        </div>
+      )}
+      
+      {user && isAdmin && (
+        <div className="bg-primary/10 border-b">
+          <div className="container mx-auto px-4 py-3 flex justify-center">
+            <Link to="/admin">
+              <Button size="sm" className="flex items-center gap-2">
+                <Shield className="h-4 w-4" />
+                Ir para Dashboard Administrativo
+              </Button>
+            </Link>
+          </div>
+        </div>
+      )}
+      
       <main>
         <Hero />
         <ProductCategories />
