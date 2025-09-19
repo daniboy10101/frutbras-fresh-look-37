@@ -14,6 +14,165 @@ export type Database = {
   }
   public: {
     Tables: {
+      audit_logs: {
+        Row: {
+          created_at: string
+          id: string
+          new_data: Json | null
+          old_data: Json | null
+          operation: string
+          record_id: string
+          table_name: string
+          user_email: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          new_data?: Json | null
+          old_data?: Json | null
+          operation: string
+          record_id: string
+          table_name: string
+          user_email?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          new_data?: Json | null
+          old_data?: Json | null
+          operation?: string
+          record_id?: string
+          table_name?: string
+          user_email?: string | null
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          created_at: string
+          customer_info: Json
+          id: string
+          items: Json
+          status: Database["public"]["Enums"]["order_status"]
+          total: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          customer_info?: Json
+          id?: string
+          items?: Json
+          status?: Database["public"]["Enums"]["order_status"]
+          total?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          customer_info?: Json
+          id?: string
+          items?: Json
+          status?: Database["public"]["Enums"]["order_status"]
+          total?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      products: {
+        Row: {
+          category: string | null
+          created_at: string
+          id: string
+          images: string[] | null
+          long_desc: string | null
+          price: number
+          seo_meta: Json | null
+          short_desc: string | null
+          slug: string
+          specs: Json | null
+          stock: number
+          title: string
+          updated_at: string
+          visible: boolean | null
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          id?: string
+          images?: string[] | null
+          long_desc?: string | null
+          price: number
+          seo_meta?: Json | null
+          short_desc?: string | null
+          slug: string
+          specs?: Json | null
+          stock?: number
+          title: string
+          updated_at?: string
+          visible?: boolean | null
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          id?: string
+          images?: string[] | null
+          long_desc?: string | null
+          price?: number
+          seo_meta?: Json | null
+          short_desc?: string | null
+          slug?: string
+          specs?: Json | null
+          stock?: number
+          title?: string
+          updated_at?: string
+          visible?: boolean | null
+        }
+        Relationships: []
+      }
+      settings: {
+        Row: {
+          colors: Json | null
+          created_at: string
+          email: string | null
+          id: string
+          logo: string | null
+          payment_methods: string[] | null
+          phone: string | null
+          policies: string | null
+          seo_default: Json | null
+          site_name: string | null
+          updated_at: string
+          whatsapp: string | null
+        }
+        Insert: {
+          colors?: Json | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          logo?: string | null
+          payment_methods?: string[] | null
+          phone?: string | null
+          policies?: string | null
+          seo_default?: Json | null
+          site_name?: string | null
+          updated_at?: string
+          whatsapp?: string | null
+        }
+        Update: {
+          colors?: Json | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          logo?: string | null
+          payment_methods?: string[] | null
+          phone?: string | null
+          policies?: string | null
+          seo_default?: Json | null
+          site_name?: string | null
+          updated_at?: string
+          whatsapp?: string | null
+        }
+        Relationships: []
+      }
       teste: {
         Row: {
           created_at: string
@@ -77,6 +236,7 @@ export type Database = {
       }
     }
     Enums: {
+      order_status: "pending" | "confirmed" | "delivered" | "cancelled"
       post_type: "oportunidade" | "servico"
       user_role: "ADMIN" | "FATURISTA" | "VENDEDOR"
       user_type: "profissional" | "empresario"
@@ -207,6 +367,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      order_status: ["pending", "confirmed", "delivered", "cancelled"],
       post_type: ["oportunidade", "servico"],
       user_role: ["ADMIN", "FATURISTA", "VENDEDOR"],
       user_type: ["profissional", "empresario"],
